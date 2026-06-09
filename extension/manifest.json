@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "PromptVault",
+  "version": "1.0.0",
+  "description": "Access and inject your saved prompts into Claude and ChatGPT.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "https://claude.ai/*",
+    "https://chatgpt.com/*",
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://claude.ai/*",
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["http://localhost:8000/*"],
+      "js": ["sync-content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

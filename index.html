@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PromptVault</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- ══════════════════════════════════════════════════════
+       SIDEBAR
+       ══════════════════════════════════════════════════════ -->
+  <aside class="sidebar">
+
+    <div class="logo">
+      <span class="logo-bolt">⚡</span>
+      <span class="logo-name">PromptVault</span>
+    </div>
+
+    <div class="search-wrap" role="search">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 16 16" fill="none">
+        <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="10.8" y1="10.8" x2="14" y2="14" stroke="currentColor"
+              stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <input class="search-input" type="text" placeholder="Search prompts…" />
+    </div>
+
+    <button class="btn-new">+ New Prompt</button>
+
+    <nav class="sidebar-nav">
+      <span class="nav-heading">Library</span>
+      <ul class="nav-list">
+        <li class="nav-item active" data-category="all">
+          <span class="nav-icon">◈</span>
+          <span class="nav-text">All Prompts</span>
+          <span class="nav-badge">5</span>
+        </li>
+        <li class="nav-item" data-category="work">
+          <span class="nav-icon">📋</span>
+          <span class="nav-text">Work</span>
+          <span class="nav-badge">2</span>
+        </li>
+        <li class="nav-item" data-category="coding">
+          <span class="nav-icon">💻</span>
+          <span class="nav-text">Coding</span>
+          <span class="nav-badge">2</span>
+        </li>
+        <li class="nav-item" data-category="writing">
+          <span class="nav-icon">✍️</span>
+          <span class="nav-text">Writing</span>
+          <span class="nav-badge">1</span>
+        </li>
+        <li class="nav-item" data-category="personal">
+          <span class="nav-icon">🙂</span>
+          <span class="nav-text">Personal</span>
+          <span class="nav-badge">0</span>
+        </li>
+      </ul>
+
+      <div class="nav-sep"></div>
+
+      <span class="nav-heading">Saved</span>
+      <ul class="nav-list">
+        <li class="nav-item" data-category="favorites">
+          <span class="nav-icon nav-star">★</span>
+          <span class="nav-text">Favorites</span>
+          <span class="nav-badge">2</span>
+        </li>
+      </ul>
+    </nav>
+
+  </aside>
+
+  <!-- ══════════════════════════════════════════════════════
+       PROMPT LIST
+       ══════════════════════════════════════════════════════ -->
+  <section class="list-pane">
+
+    <div class="list-header">
+      <h2 class="list-title">All Prompts</h2>
+      <span class="list-badge">5</span>
+    </div>
+
+    <div class="card-list">
+
+      <!-- Card 1 — active/selected -->
+      <article class="card active">
+        <div class="card-row">
+          <h3 class="card-title">Summarize meeting notes</h3>
+          <button class="star on" title="Unfavorite">★</button>
+        </div>
+        <p class="card-preview">You are a professional assistant. Summarize the following meeting notes int…</p>
+        <footer class="card-foot">
+          <div class="pill-row">
+            <span class="pill">productivity</span>
+            <span class="pill">meetings</span>
+          </div>
+          <span class="model-badge claude">claude</span>
+        </footer>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="card-row">
+          <h3 class="card-title">Explain code step by step</h3>
+          <button class="star" title="Favorite">☆</button>
+        </div>
+        <p class="card-preview">Explain the following {{language}} code step by step as if I have no progra…</p>
+        <footer class="card-foot">
+          <div class="pill-row">
+            <span class="pill">learning</span>
+            <span class="pill">debugging</span>
+          </div>
+          <span class="model-badge gpt">gpt-4</span>
+        </footer>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="card-row">
+          <h3 class="card-title">Blog post introduction</h3>
+          <button class="star" title="Favorite">☆</button>
+        </div>
+        <p class="card-preview">Write a compelling introduction for a blog post about {{topic}}. The tone sh…</p>
+        <footer class="card-foot">
+          <div class="pill-row">
+            <span class="pill">content</span>
+            <span class="pill">seo</span>
+          </div>
+          <span class="model-badge claude">claude</span>
+        </footer>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <div class="card-row">
+          <h3 class="card-title">Daily standup helper</h3>
+          <button class="star on" title="Unfavorite">★</button>
+        </div>
+        <p class="card-preview">Write my daily standup update. Yesterday: {{yesterday}}. Today: {{today}}. …</p>
+        <footer class="card-foot">
+          <div class="pill-row">
+            <span class="pill">productivity</span>
+            <span class="pill">agile</span>
+          </div>
+          <span class="model-badge claude">claude</span>
+        </footer>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card">
+        <div class="card-row">
+          <h3 class="card-title">Fix and explain this bug</h3>
+          <button class="star" title="Favorite">☆</button>
+        </div>
+        <p class="card-preview">Here is a bug I found in my {{language}} code. Explain the root cause and p…</p>
+        <footer class="card-foot">
+          <div class="pill-row">
+            <span class="pill">debugging</span>
+            <span class="pill">review</span>
+          </div>
+          <span class="model-badge gemini">gemini</span>
+        </footer>
+      </article>
+
+    </div><!-- /.card-list -->
+
+    <!-- Empty state — shown via JS when list is empty -->
+    <div class="empty-state hidden">
+      <span class="empty-icon">⚡</span>
+      <p class="empty-heading">No prompts yet</p>
+      <p class="empty-body">Click "+ New Prompt" to add your first one.</p>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════
+       DETAIL PANEL
+       ══════════════════════════════════════════════════════ -->
+  <section class="detail-pane">
+
+    <!-- Shown when a card is selected -->
+    <div class="detail-content">
+
+      <header class="detail-header">
+        <div class="detail-crumb">
+          <span class="crumb-cat">Work</span>
+          <span class="crumb-dot">·</span>
+          <span class="crumb-date">Updated Jun 6, 2026</span>
+        </div>
+        <div class="detail-actions">
+          <button class="action-btn">Copy</button>
+          <button class="action-btn use">Use ↗</button>
+          <button class="action-btn fav active">★ Favorited</button>
+          <button class="action-btn del">Delete</button>
+        </div>
+      </header>
+
+      <div class="detail-body">
+
+        <input class="detail-title" type="text" value="Summarize meeting notes" />
+
+        <textarea class="detail-textarea">You are a professional assistant. Summarize the following meeting notes into:
+
+1. Key decisions made
+2. Action items with owners (name · task · deadline if mentioned)
+3. A 2-sentence executive summary at the top
+
+Keep it concise and professional. Remove all filler language.
+
+Meeting notes:
+{{meeting_notes}}</textarea>
+
+        <div class="detail-meta">
+
+          <div class="meta-group">
+            <label class="meta-label">Tags</label>
+            <div class="tags-field">
+              <span class="pill pill-accent">productivity <span class="pill-del">×</span></span>
+              <span class="pill pill-accent">meetings <span class="pill-del">×</span></span>
+              <input class="tag-type" type="text" placeholder="Add tag…" />
+            </div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-group">
+              <label class="meta-label">Category</label>
+              <select class="meta-select">
+                <option selected>Work</option>
+                <option>Coding</option>
+                <option>Writing</option>
+                <option>Personal</option>
+              </select>
+            </div>
+            <div class="meta-group">
+              <label class="meta-label">Model</label>
+              <select class="meta-select">
+                <option selected>claude</option>
+                <option>gpt-4</option>
+                <option>gemini</option>
+              </select>
+            </div>
+            <div class="meta-group">
+              <label class="meta-label">Usage</label>
+              <span class="meta-value">14 uses</span>
+            </div>
+          </div>
+
+        </div><!-- /.detail-meta -->
+      </div><!-- /.detail-body -->
+
+    </div><!-- /.detail-content -->
+
+    <!-- Empty state — shown via JS when nothing is selected -->
+    <div class="detail-empty hidden">
+      <span class="empty-icon">◈</span>
+      <p class="empty-heading">Nothing selected</p>
+      <p class="empty-body">Pick a prompt from the list to view and edit it here.</p>
+    </div>
+
+  </section>
+
+</div><!-- /.app -->
+<script type="module" src="app.js"></script>
+</body>
+</html>
